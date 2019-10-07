@@ -1,0 +1,29 @@
+{
+  "name": "soxery-server",
+  "version": "1.0.0",
+  "description": "Soxery Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon server.js",
+    "bash": "docker-compose run soxery-server bash"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiminikiz/soxery-server.git"
+  },
+  "author": "jiminikiz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jiminikiz/soxery-server/issues"
+  },
+  "homepage": "https://github.com/jiminikiz/soxery-server#readme",
+  "dependencies": {
+    "crypto-random-string": "^3.0.1",
+    "koa": "^2.8.1",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "nodemon": "^1.19.2"
+  }
+}

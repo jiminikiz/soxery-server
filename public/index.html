@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Soxery | Magic Music Manipulator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="soxery">
+      <h1>Soxery</h1>
+      <p>
+        <span>https://www.youtube.com/watch?v=</span><input v-model="token" placeholder="y0UtUb3t0k3n"/>
+      </p>
+      <button v-on:click="submit">Submit</button>
+    </div>
+    <script>
+      new Vue({
+        el: '#soxery',
+        data: {
+          token: ''
+        },
+        methods: {
+          submit: function () {
+            axios.get('/reverse/' + this.token)
+            .then(function (response) {
+              console.log(response);
+            })
+            .catch(function (error) {
+              console.error(error);
+            });
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

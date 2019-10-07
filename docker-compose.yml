@@ -1,0 +1,11 @@
+version: '3'
+services:
+  soxery-server:
+    build: .
+    ports:
+      - "4000:80"
+    volumes:
+      - .:/app
+    environment:
+      PORT: 80
+      NPM_CONFIG_LOGLEVEL: error
