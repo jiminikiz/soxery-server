@@ -8,4 +8,5 @@ services:
       - .:/app
     environment:
       PORT: 80
+      DEBIAN_FRONTEND: noninteractive
       NPM_CONFIG_LOGLEVEL: error
