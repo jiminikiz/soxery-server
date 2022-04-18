@@ -78,10 +78,12 @@
       <h1 class="title">soxery</h1>
       <section class="container">
         <audio controls>
+          <!-- TODO: set playback value here -->
           <source src="/audio/Rei97B1-bK4_r.mp3" type="audio/mpeg">
-          😭 Audio not supported by yo' browser...😭
+          😭 Audio not supported by your browser...😭
         </audio>
         <fieldset>
+          <p>Enter a youtube token</p>
           <input v-model="token" placeholder="y0UtUb3t0k3n" title="https://www.youtube.com/watch?v={y0UtUb3t0k3n}"/>
         </fieldset>
         <button class="pure-button pure-button-primary" v-on:click="submit">
@@ -96,14 +98,14 @@
           token: ''
         },
         methods: {
-          submit: function () {
-            axios.get('/reverse/' + this.token)
-            .then(function (response) {
+          submit: () => {
+            try {
+              const response = axios.get('/reverse/' + this.token)
               console.log(response);
-            })
-            .catch(function (error) {
+              // TODO: set playback token
+            } catch(error) {
               console.error(error);
-            });
+            }
           }
         }
       })
