@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Soxery Server",
   "main": "index.js",
+  "packageManager": "yarn@1.22.17",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx nodemon server.js",
