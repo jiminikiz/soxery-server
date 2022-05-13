@@ -77,9 +77,9 @@
     <div id="soxery" class="centered">
       <h1 class="title">soxery</h1>
       <section class="container">
-        <audio controls>
+        <audio v-if="reversed" controls>
           <!-- TODO: set playback value here -->
-          <source src="/audio/Rei97B1-bK4_r.mp3" type="audio/mpeg">
+          <source src="/audio/{{ reveresed }}.mp3" type="audio/mpeg">
           😭 Audio not supported by your browser...😭
         </audio>
         <fieldset>
@@ -95,16 +95,18 @@
       new Vue({
         el: '#soxery',
         data: {
-          token: ''
+          token: '',
+          reversed: null,
         },
         methods: {
-          submit: () => {
+          submit: async function() {
+            this.reversed = ''
             try {
-              const response = axios.get('/reverse/' + this.token)
-              console.log(response);
-              // TODO: set playback token
+              const response = await axios.get('/reverse/' + this.token)
+              console.debug({ response });
+              this.reversed = `${this.token}_r`
             } catch(error) {
-              console.error(error);
+              console.error({ error });
             }
           }
         }
